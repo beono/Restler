@@ -49,7 +49,6 @@ class Nav
     public static $addExtension = true;
 
     protected static $extension = '';
-
     protected static $activeTrail = '';
     protected static $url;
 
