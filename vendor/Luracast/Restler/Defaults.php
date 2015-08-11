@@ -174,6 +174,9 @@ class Defaults
     public static $accessControlAllowMethods =
         'GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD';
 
+    /** @var bool if true then $r->handle() will return the data instead of echo and exit */
+    public static $returnResponse = false;
+
     // ==================================================================
     //
     // Header
@@ -277,6 +280,7 @@ class Defaults
     public static $validation = array(
         'suppressResponseCode' => array('type' => 'bool'),
         'headerExpires' => array('type' => 'int', 'min' => 0),
+        'returnResponse' => array('type' => 'bool')
     );
 
     // ==================================================================

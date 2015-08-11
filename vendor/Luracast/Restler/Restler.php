@@ -1147,9 +1147,14 @@ class Restler extends EventDispatcher
                 : 'Unknown';
             @header('WWW-Authenticate: ' . $authString, false);
         }
-        echo $this->responseData;
-        $this->dispatch('complete');
-        exit;
+
+        if (Defaults::$returnResponse === true) {
+            return $this->responseData;
+        } else {
+            echo $this->responseData;
+            $this->dispatch('complete');
+            exit;
+        }
     }
 
     protected function message(Exception $exception)
