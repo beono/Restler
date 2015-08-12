@@ -304,12 +304,12 @@ class Restler extends EventDispatcher
             $this->call();
             $this->compose();
             $this->postCall();
-            $this->respond();
+            return $this->respond();
         } catch (Exception $e) {
             try{
-                $this->message($e);
+                return $this->message($e);
             } catch (Exception $e2) {
-                $this->message($e2);
+                return $this->message($e2);
             }
         }
     }
@@ -1196,7 +1196,7 @@ class Restler extends EventDispatcher
             $compose->message($exception),
             !$this->productionMode
         );
-        $this->respond();
+        return $this->respond();
     }
 
     /**
